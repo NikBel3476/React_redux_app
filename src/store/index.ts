@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import { postApi } from "./reducers/postApi";
+import { postApi } from "./api/postApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
 
 const rootReducer = combineReducers({

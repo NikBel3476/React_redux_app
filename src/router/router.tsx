@@ -1,7 +1,7 @@
 import React from "react";
 import {ALBUMS_ROUTE, COMMENTS_ROUTE, PHOTOS_ROUTE, POSTS_ROUTE, ROOT_ROUTE, TODOS_ROUTE, USERS_ROUTE} from "./routes";
 import {createBrowserRouter} from "react-router-dom";
-import MainPage from "../pages/MainPage";
+import MainPage from "../pages/MainPage/MainPage";
 import PostsPage from "../pages/PostsPage";
 import UsersPage from "../pages/UsersPage";
 
