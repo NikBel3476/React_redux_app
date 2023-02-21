@@ -14,15 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "localsConvention": "camelCase"
-        }
-      }
-    ]
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

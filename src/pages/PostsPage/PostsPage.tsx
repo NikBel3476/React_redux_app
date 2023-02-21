@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react';
 import {useGetAllPostsQuery} from "../../store/api/postApi";
 import {Post} from "../../types/Post";
 import PostCard from "../../components/PostCard/PostCard";
-import styles from './PostPage.module.scss';
+import styles from './PostPage.module.css';
 
 const PostsPage: FC = () => {
   const [page, setPage] = useState<number>(1);
