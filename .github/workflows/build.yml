@@ -6,6 +6,8 @@ on:
 
 jobs:
   build:
+    name: build
+    environment: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
