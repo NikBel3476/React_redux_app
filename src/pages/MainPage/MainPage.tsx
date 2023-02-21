@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Link} from "react-router-dom";
 import {POSTS_ROUTE, USERS_ROUTE} from "../../router/routes";
-import styles from './MainPage.module.scss';
+import styles from './MainPage.module.css';
 
 const MainPage: FC = () => {
     return (

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import cn from 'classnames';
 import {Post} from "../../types/Post";
-import styles from './PostCard.module.scss';
+import styles from './PostCard.module.css';
 import {useNavigate} from "react-router-dom";
 
 type PostCardProps = {
