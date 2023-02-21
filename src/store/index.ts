@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { postApi } from "./api/postApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
+import postReducer from './slices/PostSlice';
 
 const rootReducer = combineReducers({
+	postReducer,
 	[postApi.reducerPath]: postApi.reducer
 })
 

@@ -2,6 +2,7 @@ export const API_URL = 'https://jsonplaceholder.typicode.com';
 
 export const ROOT_ROUTE = '/';
 export const POSTS_ROUTE = '/posts';
+export const POST_ROUTE = '/posts/:id';
 export const USERS_ROUTE = '/users';
 export const COMMENTS_ROUTE = '/comments';
 export const ALBUMS_ROUTE = '/albums';
