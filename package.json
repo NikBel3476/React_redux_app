@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:write": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "npx eslint ."
+    "lint:js": "npx eslint .",
+    "lint:css": "npx stylelint \"**/*.css\""
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.4",
+    "stylelint": "^15.2.0",
+    "stylelint-config-standard": "^30.0.1",
     "typescript": "^4.9.5",
     "vite": "^4.1.3"
   },
