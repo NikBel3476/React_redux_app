@@ -1,5 +1,7 @@
 # React redux app
 
+This project using https://jsonplaceholder.typicode.com/ to fetch data
+
 ### Prerequisites
 1. Node.js 18 or above
 

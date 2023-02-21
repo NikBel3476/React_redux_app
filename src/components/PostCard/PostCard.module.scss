@@ -7,6 +7,12 @@
   border-radius: 10px;
   box-shadow: 0 7px 14px rgb(11 31 53 / 10%);
   cursor: pointer;
+  transition: all 0.4s;
+}
+
+.container:hover {
+  transform: scale(110%);
+  box-shadow: 0 7px 14px rgb(11 31 53 / 50%);
 }
 
 .post-title {
@@ -15,4 +21,5 @@
 
 .post-body {
   font-size: 1rem;
+  font-weight: 400;
 }
