@@ -11,7 +11,8 @@
     "format:write": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:js": "npx eslint .",
-    "lint:css": "npx stylelint \"**/*.css\""
+    "lint:css": "npx stylelint \"**/*.css\"",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
@@ -43,5 +46,10 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write"
+    ]
   }
 }
