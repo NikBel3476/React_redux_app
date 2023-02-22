@@ -7,6 +7,7 @@ import {
 	POSTS_ROUTE,
 	ROOT_ROUTE,
 	TODOS_ROUTE,
+	USER_ROUTE,
 	USERS_ROUTE
 } from './routes';
 import { createBrowserRouter } from 'react-router-dom';
@@ -14,6 +15,7 @@ import MainPage from '../pages/MainPage/MainPage';
 import PostsPage from '../pages/PostsPage';
 import UsersPage from '../pages/UsersPage/UsersPage';
 import PostPage from '../pages/PostPage';
+import UserPage from '../pages/UserPage';
 
 export const router = createBrowserRouter([
 	{
@@ -31,6 +33,10 @@ export const router = createBrowserRouter([
 	{
 		path: USERS_ROUTE,
 		element: <UsersPage />
+	},
+	{
+		path: USER_ROUTE,
+		element: <UserPage />
 	}
 	// {
 	//     path: COMMENTS_ROUTE,

@@ -4,6 +4,7 @@ export const ROOT_ROUTE = '/';
 export const POSTS_ROUTE = '/posts';
 export const POST_ROUTE = '/posts/:id';
 export const USERS_ROUTE = '/users';
+export const USER_ROUTE = '/users/:id';
 export const COMMENTS_ROUTE = '/comments';
 export const ALBUMS_ROUTE = '/albums';
 export const PHOTOS_ROUTE = '/photos';

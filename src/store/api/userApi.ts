@@ -12,6 +12,7 @@ export const userApi = createApi({
 		getAllUsers: builder.query<User[], { page: number; limit: number }>({
 			query: ({ page, limit = 10 }) => ({
 				url: USERS_ROUTE,
+				method: 'GET',
 				params: {
 					_page: page,
 					_limit: limit
