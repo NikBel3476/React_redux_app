@@ -1,5 +1,8 @@
 import React, { FC, useState } from 'react';
 import { useGetAllUsersQuery } from '../../store/api/userApi';
+import UserCard from '../../components/UserCard';
+import cn from 'classnames';
+import styles from './UsersPage.module.css';
 
 const UsersPage: FC = () => {
 	const [page, setPage] = useState<number>(1);
@@ -23,8 +26,11 @@ const UsersPage: FC = () => {
 	}
 
 	return (
-		<main>
-			{users?.length != null && users.map(user => <div key={user.id}>{user.name}</div>)}
+		<main className={cn(styles.container)}>
+			{users?.length != null &&
+				users.map(user => (
+					<UserCard user={user} key={user.id} className={styles.userCard} />
+				))}
 		</main>
 	);
 };

@@ -3,8 +3,9 @@ node_modules
 dist
 
 *.json
-*.md
 *.html
 *.css
+*.md
+*.yml
 
 .prettierrc

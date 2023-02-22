@@ -1,7 +1,7 @@
-import { type Address } from './Address';
-import { type Company } from './Company';
+import { Address } from './Address';
+import { Company } from './Company';
 
-export interface User {
+export type User = {
 	id: number;
 	name: string;
 	username: string;
@@ -10,4 +10,4 @@ export interface User {
 	phone: string;
 	website: string;
 	company: Company;
-}
+};
