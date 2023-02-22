@@ -5,7 +5,9 @@ import PostCard from '../../components/PostCard/PostCard';
 import styles from './PostPage.module.css';
 
 const PostsPage: FC = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [page, setPage] = useState<number>(1);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [limit, setLimit] = useState<number>(10);
 	const { data: posts, error, isLoading } = useGetAllPostsQuery({ page, limit });
 

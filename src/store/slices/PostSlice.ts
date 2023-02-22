@@ -1,25 +1,25 @@
-import {Post} from "../../types/Post";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchPost} from "../ActionCreators";
+import { Post } from '../../types/Post';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchPost } from '../ActionCreators';
 
 type PostState = {
-	post: Post | null,
-	isLoading: boolean,
-	error: string
-}
+	post: Post | null;
+	isLoading: boolean;
+	error: string;
+};
 
 const initialState: PostState = {
 	post: null,
 	isLoading: false,
 	error: ''
-}
+};
 
 export const postSlice = createSlice({
 	name: 'post',
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[fetchPost.pending.type]: (state) => {
+		[fetchPost.pending.type]: state => {
 			state.isLoading = true;
 		},
 		[fetchPost.fulfilled.type]: (state, action: PayloadAction<Post>) => {

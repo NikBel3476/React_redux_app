@@ -16,11 +16,13 @@ import PostsPage from '../pages/PostsPage';
 import UsersPage from '../pages/UsersPage/UsersPage';
 import PostPage from '../pages/PostPage';
 import UserPage from '../pages/UserPage';
+import NotFoundPage from '../pages/NotFoundPage';
 
 export const router = createBrowserRouter([
 	{
 		path: ROOT_ROUTE,
-		element: <MainPage />
+		element: <MainPage />,
+		errorElement: <NotFoundPage />
 	},
 	{
 		path: POSTS_ROUTE,
