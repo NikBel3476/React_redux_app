@@ -26,11 +26,23 @@
     },
     "rules": {
         "no-tabs": ["error", { "allowIndentationTabs": true }],
-        "@typescript-eslint/semi": ["error", "always"],
         "no-console": "error",
+        "react/jsx-uses-react": "error",
+        "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/member-delimiter-style": ["error", {}],
-        "@typescript-eslint/space-before-function-paren": ["error", "never"],
-        "@typescript-eslint/strict-boolean-expressions": ["error", { "allowNullableObject": true }]
+        "@typescript-eslint/space-before-function-paren": ["error", {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+        "@typescript-eslint/strict-boolean-expressions": ["error", { "allowNullableObject": true }],
+        "@typescript-eslint/consistent-type-imports": ["error", {
+            "prefer": "no-type-imports"
+        }],
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+        "@typescript-eslint/no-confusing-void-expression": ["error", {
+            "ignoreArrowShorthand": true
+        }]
     }
 }

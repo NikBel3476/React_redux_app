@@ -1,5 +1,5 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {API_URL, POSTS_ROUTE} from "../router/routes";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { API_URL, POSTS_ROUTE } from '../router/routes';
 
 export const fetchPost = createAsyncThunk(
 	'post/fetchById',
@@ -11,4 +11,4 @@ export const fetchPost = createAsyncThunk(
 			return thunkAPI.rejectWithValue('Error on post loading');
 		}
 	}
-)
+);
