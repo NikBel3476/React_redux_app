@@ -16,30 +16,35 @@ import UserPage from '../pages/UserPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import AlbumPage from '../pages/AlbumPage';
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+	[
+		{
+			path: ROOT_ROUTE,
+			element: <MainPage />,
+			errorElement: <NotFoundPage />
+		},
+		{
+			path: POSTS_ROUTE,
+			element: <PostsPage />
+		},
+		{
+			path: POST_ROUTE,
+			element: <PostPage />
+		},
+		{
+			path: USERS_ROUTE,
+			element: <UsersPage />
+		},
+		{
+			path: USER_ROUTE,
+			element: <UserPage />
+		},
+		{
+			path: ALBUM_ROUTE,
+			element: <AlbumPage />
+		}
+	],
 	{
-		path: ROOT_ROUTE,
-		element: <MainPage />,
-		errorElement: <NotFoundPage />
-	},
-	{
-		path: POSTS_ROUTE,
-		element: <PostsPage />
-	},
-	{
-		path: POST_ROUTE,
-		element: <PostPage />
-	},
-	{
-		path: USERS_ROUTE,
-		element: <UsersPage />
-	},
-	{
-		path: USER_ROUTE,
-		element: <UserPage />
-	},
-	{
-		path: ALBUM_ROUTE,
-		element: <AlbumPage />
+		basename: '/React_redux_app'
 	}
-]);
+);
