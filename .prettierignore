@@ -1,0 +1,11 @@
+.git
+node_modules
+dist
+
+*.json
+*.html
+*.css
+*.md
+*.yml
+
+.prettierrc

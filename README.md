@@ -1,11 +1,13 @@
-# React app with redux
+# React redux app
 
-**App use webpack**
+This project using https://jsonplaceholder.typicode.com/ to fetch data
 
-## To init
+### Prerequisites
+1. Node.js 18 or above
 
-### `npm install`
-
-## Run the project
-
-### `npm start`
+### Steps to launch the project
+1. Clone this repository
+2. Install dependecies  
+   `npm install`
+3. Run the project  
+   `npm run dev`
