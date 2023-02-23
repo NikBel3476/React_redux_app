@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL, PHOTOS_ROUTE } from '../../router/routes';
+import { API_URL, API_PHOTOS } from '../../http/httpRoutes';
 import { Photo } from '../../types/Photo';
 
 export const photoApi = createApi({
@@ -11,7 +11,7 @@ export const photoApi = createApi({
 	endpoints: builder => ({
 		getAllPhotos: builder.query<Photo[], { page: number; limit: number }>({
 			query: ({ page = 1, limit = 5 }) => ({
-				url: PHOTOS_ROUTE,
+				url: API_PHOTOS,
 				method: 'GET',
 				params: {
 					_page: page,
@@ -21,7 +21,7 @@ export const photoApi = createApi({
 		}),
 		getPhotoById: builder.query<Photo, number>({
 			query: id => ({
-				url: `${PHOTOS_ROUTE}/${id}`,
+				url: `${API_PHOTOS}/${id}`,
 				method: 'GET'
 			})
 		}),
@@ -30,7 +30,7 @@ export const photoApi = createApi({
 			{ albumId: number; page?: number; limit?: number }
 		>({
 			query: ({ albumId, page = 1, limit = 5 }) => ({
-				url: PHOTOS_ROUTE,
+				url: API_PHOTOS,
 				method: 'GET',
 				params: {
 					albumId,

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL, USERS_ROUTE } from '../../router/routes';
+import { API_URL, API_USERS } from '../../http/httpRoutes';
 import { User } from '../../types/User';
 
 export const userApi = createApi({
@@ -11,7 +11,7 @@ export const userApi = createApi({
 	endpoints: builder => ({
 		getAllUsers: builder.query<User[], { page: number; limit: number }>({
 			query: ({ page, limit = 10 }) => ({
-				url: USERS_ROUTE,
+				url: API_USERS,
 				method: 'GET',
 				params: {
 					_page: page,
@@ -21,7 +21,7 @@ export const userApi = createApi({
 		}),
 		getUserById: builder.query<User, number>({
 			query: id => ({
-				url: `${USERS_ROUTE}/${id}`,
+				url: `${API_USERS}/${id}`,
 				method: 'GET'
 			})
 		})

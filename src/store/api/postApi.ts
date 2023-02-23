@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL, POSTS_ROUTE } from '../../router/routes';
+import { API_URL, API_POSTS } from '../../http/httpRoutes';
 import { Post } from '../../types/Post';
 
 export const postApi = createApi({
@@ -11,7 +11,7 @@ export const postApi = createApi({
 	endpoints: builder => ({
 		getAllPosts: builder.query<Post[], { page: number; limit: number }>({
 			query: ({ page, limit = 10 }) => ({
-				url: POSTS_ROUTE,
+				url: API_POSTS,
 				params: {
 					_page: page,
 					_limit: limit
@@ -20,12 +20,12 @@ export const postApi = createApi({
 		}),
 		getPostById: builder.query<Post, number>({
 			query: id => ({
-				url: `${POSTS_ROUTE}/${id}`,
+				url: `${API_POSTS}/${id}`,
 				method: 'GET'
 			})
 		}),
 		getPostsByUserId: builder.query<Post[], number>({
-			query: userId => `${POSTS_ROUTE}?userId=${userId}`
+			query: userId => `${API_POSTS}?userId=${userId}`
 		})
 	})
 });
