@@ -38,7 +38,7 @@ const PhotosWidget: FC<PhotosWidgetProps> = ({ className }) => {
 				<div key={photo.id}>
 					<h3>{photo.title}</h3>
 					<div className={styles.imageWrapper}>
-						<img src={photo.url} alt={photo.title} />
+						<img className={styles.photo} src={photo.url} alt={photo.title} />
 					</div>
 				</div>
 			))}
