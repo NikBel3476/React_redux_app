@@ -1,0 +1,11 @@
+.container {
+
+}
+
+.comment-card {
+	margin-top: 15px;
+}
+
+.comment-card:first-child {
+	margin-top: 0;
+}
