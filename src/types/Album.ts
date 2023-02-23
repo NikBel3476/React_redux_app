@@ -1,6 +1,5 @@
-export type Post = {
+export type Album = {
 	userId: number;
 	id: number;
 	title: string;
-	body: string;
 };

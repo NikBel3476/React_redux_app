@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	align-items: stretch;
+	text-align: center;
+}
+
+.container > * {
+	flex-grow: 1;
+}
+
+.album-card {
+	margin: 10px 10px 0 0;
+}

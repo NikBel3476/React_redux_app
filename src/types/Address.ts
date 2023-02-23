@@ -1,4 +1,4 @@
-export interface Address {
+export type Address = {
 	street: string;
 	suite: string;
 	city: string;
@@ -7,4 +7,4 @@ export interface Address {
 		lat: number;
 		lng: number;
 	};
-}
+};
