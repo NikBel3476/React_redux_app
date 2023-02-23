@@ -4,12 +4,14 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import postReducer from './slices/PostSlice';
 import { userApi } from './api/userApi';
 import { albumApi } from './api/albumApi';
+import { photoApi } from './api/photoApi';
 
 const rootReducer = combineReducers({
 	postReducer,
 	[postApi.reducerPath]: postApi.reducer,
 	[userApi.reducerPath]: userApi.reducer,
-	[albumApi.reducerPath]: albumApi.reducer
+	[albumApi.reducerPath]: albumApi.reducer,
+	[photoApi.reducerPath]: photoApi.reducer
 });
 
 export const store = configureStore({
@@ -18,7 +20,8 @@ export const store = configureStore({
 		getDefaultMiddleware().concat(
 			postApi.middleware,
 			userApi.middleware,
-			albumApi.middleware
+			albumApi.middleware,
+			photoApi.middleware
 		)
 });
 

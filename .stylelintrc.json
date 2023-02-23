@@ -1,12 +1,11 @@
 {
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "indentation": "tab",
-    "no-missing-end-of-source-newline": null,
-    "property-no-vendor-prefix": null,
-    "no-empty-source": null
-  },
-  "ignoreFiles": [
-    "dist/**/*"
-  ]
+    "extends": "stylelint-config-standard",
+    "plugins": ["stylelint-prettier"],
+    "rules": {
+        "prettier/prettier": true,
+        "no-empty-source": null
+    },
+    "ignoreFiles": [
+        "dist/**/*"
+    ]
 }

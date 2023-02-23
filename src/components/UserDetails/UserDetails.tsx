@@ -10,21 +10,21 @@ type UserDetailsProps = {
 const UserDetails: FC<UserDetailsProps> = ({ user }) => {
 	return (
 		<div className={cn(styles.container)}>
-			<h1>{user.name}</h1>
-			<p>{user.username}</p>
-			<p>{user.email}</p>
+			<h1>{user.username}</h1>
+			<p>name: {user.name}</p>
+			<p>email: {user.email}</p>
 			<div>
 				<h3>address</h3>
-				<p>{user.address.street}</p>
-				<p>{user.address.suite}</p>
-				<p>{user.address.city}</p>
-				<p>{user.address.zipcode}</p>
+				<p>street: {user.address.street}</p>
+				<p>suite: {user.address.suite}</p>
+				<p>city: {user.address.city}</p>
+				<p>zipcode: {user.address.zipcode}</p>
 				<p>
-					{user.address.geo.lat} {user.address.geo.lng}
+					geo: {user.address.geo.lat} {user.address.geo.lng}
 				</p>
 			</div>
-			<p>{user.phone}</p>
-			<p>{user.website}</p>
+			<p>phone: {user.phone}</p>
+			<p>website: {user.website}</p>
 			<div>
 				<h3>company</h3>
 				<p>{user.company.name}</p>

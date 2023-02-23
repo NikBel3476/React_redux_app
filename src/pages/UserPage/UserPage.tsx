@@ -11,7 +11,7 @@ const UserPage: FC = () => {
 	return (
 		<div className={cn(styles.container)}>
 			<UserWidget id={Number(id)} />
-			<h2>Albums</h2>
+			<h2 className={styles.albumsTitle}>Albums</h2>
 			<AlbumsWidget userId={Number(id)} />
 		</div>
 	);

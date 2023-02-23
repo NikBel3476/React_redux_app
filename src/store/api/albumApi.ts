@@ -10,7 +10,7 @@ export const albumApi = createApi({
 	tagTypes: ['Album'],
 	endpoints: builder => ({
 		getAllAlbums: builder.query<Album[], { page: number; limit: number }>({
-			query: ({ page, limit = 10 }) => ({
+			query: ({ page = 1, limit = 10 }) => ({
 				url: ALBUMS_ROUTE,
 				method: 'GET',
 				params: {
