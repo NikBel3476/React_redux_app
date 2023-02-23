@@ -5,7 +5,9 @@ import cn from 'classnames';
 import styles from './UsersPage.module.css';
 
 const UsersPage: FC = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [page, setPage] = useState<number>(1);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [limit, setLimit] = useState<number>(10);
 	const { data: users, error, isLoading } = useGetAllUsersQuery({ page, limit });
 

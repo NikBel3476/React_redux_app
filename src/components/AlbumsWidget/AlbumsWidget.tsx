@@ -4,7 +4,7 @@ import cn from 'classnames';
 import styles from './AlbumsWidget.module.css';
 import { useNavigate } from 'react-router-dom';
 import { ALBUMS_ROUTE } from '../../router/routes';
-import AlbumCard from '../PhotoCard';
+import AlbumCard from '../AlbumCard';
 
 type AlbumsWidgetProps = {
 	className?: string;
@@ -36,7 +36,7 @@ const AlbumsWidget: FC<AlbumsWidgetProps> = ({ className, userId }) => {
 	}
 
 	return (
-		<div className={cn(className, styles.container)}>
+		<div className={cn(styles.container, className)}>
 			{albums.map(album => (
 				<AlbumCard
 					className={styles.albumCard}

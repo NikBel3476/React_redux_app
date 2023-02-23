@@ -1,22 +1,20 @@
 import React from 'react';
 import {
-	ALBUMS_ROUTE,
-	COMMENTS_ROUTE,
-	PHOTOS_ROUTE,
+	ALBUM_ROUTE,
 	POST_ROUTE,
 	POSTS_ROUTE,
 	ROOT_ROUTE,
-	TODOS_ROUTE,
 	USER_ROUTE,
 	USERS_ROUTE
 } from './routes';
 import { createBrowserRouter } from 'react-router-dom';
-import MainPage from '../pages/MainPage/MainPage';
+import MainPage from '../pages/MainPage';
 import PostsPage from '../pages/PostsPage';
-import UsersPage from '../pages/UsersPage/UsersPage';
 import PostPage from '../pages/PostPage';
+import UsersPage from '../pages/UsersPage';
 import UserPage from '../pages/UserPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import AlbumPage from '../pages/AlbumPage';
 
 export const router = createBrowserRouter([
 	{
@@ -39,21 +37,9 @@ export const router = createBrowserRouter([
 	{
 		path: USER_ROUTE,
 		element: <UserPage />
+	},
+	{
+		path: ALBUM_ROUTE,
+		element: <AlbumPage />
 	}
-	// {
-	//     path: COMMENTS_ROUTE,
-	//     element: ''
-	// },
-	// {
-	//     path: ALBUMS_ROUTE,
-	//     element: ''
-	// },
-	// {
-	//     path: PHOTOS_ROUTE,
-	//     element: ''
-	// },
-	// {
-	//     path: TODOS_ROUTE,
-	//     element: ''
-	// }
 ]);
