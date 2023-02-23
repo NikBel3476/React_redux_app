@@ -1,4 +1,4 @@
-export const ROOT_ROUTE = '/react_redux_app/';
+export const ROOT_ROUTE = '/';
 export const POSTS_ROUTE = `${ROOT_ROUTE}posts`;
 export const POST_ROUTE = `${POSTS_ROUTE}/:id`;
 export const USERS_ROUTE = `${ROOT_ROUTE}users`;
