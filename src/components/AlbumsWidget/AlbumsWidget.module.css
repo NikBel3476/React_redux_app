@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: flex-start;
+}
+
+.album-card {
+	margin-top: 10px;
+}
+
+.album-card:nth-child(1) {
+	margin-top: 0;
+}
