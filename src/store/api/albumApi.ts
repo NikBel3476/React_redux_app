@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ALBUMS_ROUTE, API_URL } from '../../router/routes';
+import { API_URL, API_ALBUMS } from '../../http/httpRoutes';
 import { Album } from '../../types/Album';
 
 export const albumApi = createApi({
@@ -11,7 +11,7 @@ export const albumApi = createApi({
 	endpoints: builder => ({
 		getAllAlbums: builder.query<Album[], { page: number; limit: number }>({
 			query: ({ page = 1, limit = 10 }) => ({
-				url: ALBUMS_ROUTE,
+				url: API_ALBUMS,
 				method: 'GET',
 				params: {
 					_page: page,
@@ -21,7 +21,7 @@ export const albumApi = createApi({
 		}),
 		getAlbumById: builder.query<Album, number>({
 			query: id => ({
-				url: `${ALBUMS_ROUTE}/${id}`,
+				url: `${API_ALBUMS}/${id}`,
 				method: 'GET'
 			})
 		}),
@@ -30,7 +30,7 @@ export const albumApi = createApi({
 			{ userId: number; page?: number; limit?: number }
 		>({
 			query: ({ userId, page = 1, limit = 5 }) => ({
-				url: ALBUMS_ROUTE,
+				url: API_ALBUMS,
 				method: 'GET',
 				params: {
 					userId,

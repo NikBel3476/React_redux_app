@@ -1,43 +1,88 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL, PHOTOS_ROUTE } from '../../router/routes';
+import { API_URL, API_PHOTOS } from '../../http/httpRoutes';
 import { Photo } from '../../types/Photo';
+import { ListResponse } from '../ListResponse';
 
 export const photoApi = createApi({
 	reducerPath: 'photoApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: API_URL
 	}),
-	tagTypes: ['Photo'],
+	tagTypes: ['Photos'],
 	endpoints: builder => ({
-		getAllPhotos: builder.query<Photo[], { page: number; limit: number }>({
+		getAllPhotos: builder.query<ListResponse<Photo>, { page: number; limit: number }>({
 			query: ({ page = 1, limit = 5 }) => ({
-				url: PHOTOS_ROUTE,
+				url: API_PHOTOS,
 				method: 'GET',
 				params: {
 					_page: page,
 					_limit: limit
 				}
-			})
+			}),
+			serializeQueryArgs: ({ endpointName }) => {
+				return endpointName;
+			},
+			transformResponse: (response: Photo[], meta, arg) => {
+				const totalCountHeaderValue = meta?.response?.headers.get('x-total-count');
+				const totalCount =
+					totalCountHeaderValue != null ? Number(totalCountHeaderValue) : 0;
+				return {
+					totalCount,
+					totalPages: Math.ceil(totalCount / arg.limit),
+					data: response
+				};
+			},
+			providesTags: () => ['Photos'],
+			merge: (currentCacheData, responseData) => {
+				currentCacheData.data.push(...responseData.data);
+				currentCacheData.totalCount = responseData.totalCount;
+				currentCacheData.totalPages = responseData.totalPages;
+			},
+			forceRefetch: ({ currentArg, previousArg }) => {
+				return currentArg !== previousArg;
+			}
 		}),
 		getPhotoById: builder.query<Photo, number>({
 			query: id => ({
-				url: `${PHOTOS_ROUTE}/${id}`,
+				url: `${API_PHOTOS}/${id}`,
 				method: 'GET'
 			})
 		}),
 		getPhotosByAlbumId: builder.query<
-			Photo[],
-			{ albumId: number; page?: number; limit?: number }
+			ListResponse<Photo>,
+			{ albumId: number; page: number; limit: number }
 		>({
 			query: ({ albumId, page = 1, limit = 5 }) => ({
-				url: PHOTOS_ROUTE,
+				url: API_PHOTOS,
 				method: 'GET',
 				params: {
 					albumId,
 					_page: page,
 					_limit: limit
 				}
-			})
+			}),
+			serializeQueryArgs: ({ endpointName }) => {
+				return endpointName;
+			},
+			transformResponse: (response: Photo[], meta, arg) => {
+				const totalCountHeaderValue = meta?.response?.headers.get('x-total-count');
+				const totalCount =
+					totalCountHeaderValue != null ? Number(totalCountHeaderValue) : 0;
+				return {
+					totalCount,
+					totalPages: Math.ceil(totalCount / arg.limit),
+					data: response
+				};
+			},
+			providesTags: () => ['Photos'],
+			merge: (currentCacheData, responseData) => {
+				currentCacheData.data.push(...responseData.data);
+				currentCacheData.totalCount = responseData.totalCount;
+				currentCacheData.totalPages = responseData.totalPages;
+			},
+			forceRefetch: ({ currentArg, previousArg }) => {
+				return currentArg !== previousArg;
+			}
 		})
 	})
 });
