@@ -38,17 +38,19 @@ const PostPage: FC = () => {
 	}
 
 	return (
-		<div className={cn(styles.container)}>
-			<h1>{post.title}</h1>
-			<p>{post.body}</p>
-			<h2 className={styles.commentsTitle}>Comments</h2>
-			{commentsIsLoading && <h3>Comments loading...</h3>}
-			{Boolean(commentsError) || comments === undefined ? (
-				<h3>Error on loading comments</h3>
-			) : (
-				<CommentsWidget comments={comments} />
-			)}
-		</div>
+		<main className={cn(styles.container)}>
+			<h1 className={styles.postTitle}>{post.title}</h1>
+			<p className={styles.postBody}>{post.body}</p>
+			<section className={styles.commentsWrapper}>
+				<h2 className={styles.commentsTitle}>Comments</h2>
+				{commentsIsLoading && <h3>Comments loading...</h3>}
+				{Boolean(commentsError) || comments === undefined ? (
+					<h3>Error on loading comments</h3>
+				) : (
+					<CommentsWidget comments={comments} />
+				)}
+			</section>
+		</main>
 	);
 };
 

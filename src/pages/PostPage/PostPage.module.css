@@ -5,3 +5,16 @@
 .comments-title {
 	font-size: 1.3rem;
 }
+
+.post-title {
+	font-size: 2rem;
+}
+
+.post-title::first-letter,
+.post-body::first-letter {
+	text-transform: capitalize;
+}
+
+.comments-wrapper {
+	margin-top: 100px;
+}
