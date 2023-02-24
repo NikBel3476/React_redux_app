@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { useGetAllPostsQuery } from '../../store/api/postApi';
 import { Post } from '../../types/Post';
 import PostCard from '../../components/PostCard/PostCard';
@@ -17,7 +17,6 @@ const PostsPage: FC = () => {
 	} = useGetAllPostsQuery({ page, limit });
 	const lastElement = useRef<HTMLDivElement | null>(null);
 
-	// FIXME: isLoading is not update on fetch new data
 	useObserver(lastElement, page < Number(posts?.totalPages), isFetching, () => {
 		setPage(page => page + 1);
 	});
