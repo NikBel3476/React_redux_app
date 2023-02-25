@@ -1,27 +1,25 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchPost } from '../../store/ActionCreators';
 import cn from 'classnames';
 import styles from './PostPage.module.css';
 import { useGetCommentsByPostIdQuery } from '../../store/api/commentApi';
 import CommentsWidget from '../../components/CommentsWidget';
+import { useGetPostByIdQuery } from '../../store/api/postApi';
 
 const PostPage: FC = () => {
 	const { id } = useParams<{ id: string }>();
-	const dispatch = useAppDispatch();
-	const { post, isLoading, error } = useAppSelector(state => state.postReducer);
+	const {
+		data: postFromApi,
+		isLoading: isPostLoading,
+		error: postError
+	} = useGetPostByIdQuery(Number(id));
 	const {
 		data: comments,
 		isLoading: commentsIsLoading,
 		error: commentsError
 	} = useGetCommentsByPostIdQuery({ postId: Number(id) });
 
-	useEffect(() => {
-		void dispatch(fetchPost(Number(id)));
-	}, []);
-
-	if (isLoading) {
+	if (isPostLoading) {
 		return (
 			<div>
 				<h1>Loading...</h1>
@@ -29,18 +27,18 @@ const PostPage: FC = () => {
 		);
 	}
 
-	if (error || post === null) {
+	if (Boolean(postError) || postFromApi === undefined) {
 		return (
 			<div>
-				<h1>{error}</h1>
+				<h1>Failed on loading post</h1>
 			</div>
 		);
 	}
 
 	return (
 		<main className={cn(styles.container)}>
-			<h1 className={styles.postTitle}>{post.title}</h1>
-			<p className={styles.postBody}>{post.body}</p>
+			<h1 className={styles.postTitle}>{postFromApi.title}</h1>
+			<p className={styles.postBody}>{postFromApi.body}</p>
 			<section className={styles.commentsWrapper}>
 				<h2 className={styles.commentsTitle}>Comments</h2>
 				{commentsIsLoading && <h3>Comments loading...</h3>}
