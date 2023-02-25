@@ -2,31 +2,18 @@
 	font-size: 1rem;
 }
 
-.photo {
-	width: 600px;
-	height: 600px;
-	background-size: 300% 300%;
-	background-image: linear-gradient(
-		-45deg,
-		rgb(59 173 227 / 100%) 0%,
-		rgb(87 111 230 / 100%) 25%,
-		rgb(152 68 183 / 100%) 51%,
-		rgb(255 53 127 / 100%) 100%
-	);
-	animation: animate-bg 10s ease infinite;
+.photo-card {
+	margin-top: 150px;
+	transition: all 0.4s ease;
 }
 
-@keyframes animate-bg {
-	0% {
-		background-position: 0 50%;
-	}
+.photo-card:first-child {
+	margin-top: 50px;
+}
 
-	50% {
-		background-position: 100% 50%;
-	}
-
-	100% {
-		background-position: 0 50%;
+@media screen and (max-width: 768px) {
+	.photo-card {
+		margin-top: 50px;
 	}
 }
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import styles from './PhotosWidget.module.css';
 import cn from 'classnames';
 import { useObserver } from '../../hooks/useObserver';
+import PhotoCard from '../PhotoCard';
 
 type PhotosWidgetProps = {
 	className?: string;
@@ -46,12 +47,7 @@ const PhotosWidget: FC<PhotosWidgetProps> = ({ className }) => {
 		<div className={cn(styles.container, className)}>
 			{photos.data.length === 0 && <h3>No photos</h3>}
 			{photos.data.map(photo => (
-				<div key={photo.id}>
-					<h3>{photo.title}</h3>
-					<div className={styles.imageWrapper}>
-						<img className={styles.photo} src={photo.url} alt={photo.title} />
-					</div>
-				</div>
+				<PhotoCard className={styles.photoCard} key={photo.id} photo={photo} />
 			))}
 			<div className={styles.intersectionBlock} ref={lastElement} />
 		</div>
