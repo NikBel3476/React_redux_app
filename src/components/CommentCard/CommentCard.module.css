@@ -1,0 +1,29 @@
+.container {
+	max-width: 500px;
+	border-bottom: 1px solid #ccc;
+}
+
+.comment-header {
+	display: flex;
+	align-items: center;
+}
+
+.comment-email {
+	margin: 0 0 0 5px;
+	font-size: 1.2rem;
+}
+
+.comment-title {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.comment-body {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.comment-title::first-letter,
+.comment-body::first-letter {
+	text-transform: capitalize;
+}

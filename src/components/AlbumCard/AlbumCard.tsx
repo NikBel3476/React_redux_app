@@ -11,7 +11,7 @@ type AlbumCardProps = {
 
 const AlbumCard: FC<AlbumCardProps> = ({ className, album, onClick }) => {
 	return (
-		<div className={cn(className, styles.container)} key={album.id} onClick={onClick}>
+		<div className={cn(styles.container, className)} key={album.id} onClick={onClick}>
 			<h3 className={styles.title}>{album.title}</h3>
 		</div>
 	);
