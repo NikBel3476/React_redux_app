@@ -1,14 +1,17 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef } from 'react';
 import { useGetAllPostsQuery } from '../../store/api/postApi';
 import { Post } from '../../types/Post';
 import PostCard from '../../components/PostCard/PostCard';
 import styles from './PostPage.module.css';
 import { useObserver } from '../../hooks/useObserver';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { incrementPage } from '../../store/slices/PostSlice';
 
 const PostsPage: FC = () => {
-	const [page, setPage] = useState<number>(1);
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [limit, setLimit] = useState<number>(10);
+	const page = useSelector((state: RootState) => state.postReducer.page);
+	const limit = useSelector((state: RootState) => state.postReducer.limit);
+	const dispatch = useDispatch();
 	const {
 		data: posts,
 		error,
@@ -18,7 +21,7 @@ const PostsPage: FC = () => {
 	const lastElement = useRef<HTMLDivElement | null>(null);
 
 	useObserver(lastElement, page < Number(posts?.totalPages), isFetching, () => {
-		setPage(page => page + 1);
+		dispatch(incrementPage());
 	});
 
 	return (

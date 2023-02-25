@@ -38,7 +38,10 @@ export const postApi = createApi({
 				currentCacheData.totalPages = responseData.totalPages;
 			},
 			forceRefetch: ({ currentArg, previousArg }) => {
-				return currentArg !== previousArg;
+				return (
+					currentArg?.page !== previousArg?.page ||
+					currentArg?.limit !== previousArg?.limit
+				);
 			}
 		}),
 		getPostById: builder.query<Post, number>({

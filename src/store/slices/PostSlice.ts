@@ -6,32 +6,49 @@ type PostState = {
 	post: Post | null;
 	isLoading: boolean;
 	error: string;
+	page: number;
+	limit: number;
 };
 
 const initialState: PostState = {
 	post: null,
 	isLoading: false,
-	error: ''
+	error: '',
+	page: 1,
+	limit: 10
 };
 
 export const postSlice = createSlice({
 	name: 'post',
 	initialState,
-	reducers: {},
-	extraReducers: {
-		[fetchPost.pending.type]: state => {
-			state.isLoading = true;
+	reducers: {
+		incrementPage: state => {
+			state.page += 1;
 		},
-		[fetchPost.fulfilled.type]: (state, action: PayloadAction<Post>) => {
-			state.isLoading = false;
-			state.post = action.payload;
-			state.error = '';
+		decrementPage: state => {
+			state.page -= 1;
 		},
-		[fetchPost.rejected.type]: (state, action: PayloadAction<string>) => {
-			state.isLoading = false;
-			state.error = action.payload;
+		setPage: (state, action: PayloadAction<number>) => {
+			state.page = action.payload;
 		}
+	},
+	extraReducers: builder => {
+		builder
+			.addCase(fetchPost.pending.type, (state, action) => {
+				state.isLoading = true;
+			})
+			.addCase(fetchPost.fulfilled.type, (state, action: PayloadAction<Post>) => {
+				state.isLoading = false;
+				state.post = action.payload;
+				state.error = '';
+			})
+			.addCase(fetchPost.rejected.type, (state, action: PayloadAction<string>) => {
+				state.isLoading = false;
+				state.error = action.payload;
+			});
 	}
 });
+
+export const { incrementPage, decrementPage, setPage } = postSlice.actions;
 
 export default postSlice.reducer;
