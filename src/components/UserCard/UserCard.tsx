@@ -14,10 +14,10 @@ const UserCard: FC<UserCardProps> = ({ className, user }) => {
 
 	return (
 		<div
-			className={cn(className, styles.container)}
+			className={cn(styles.container, className)}
 			onClick={() => navigate(`${user.id}`)}
 		>
-			<h2>{user.username}</h2>
+			<h2 className={styles.username}>{user.username}</h2>
 			<p>{user.name}</p>
 		</div>
 	);

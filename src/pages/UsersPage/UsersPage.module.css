@@ -1,12 +1,11 @@
 .container {
+	padding: 0 10px 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-bottom: 20px;
 }
 
 .user-card {
-	min-width: 220px;
 	margin-top: 20px;
 }

@@ -1,0 +1,14 @@
+.container {
+	padding: 0 20px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+.title {
+	text-align: center;
+}
+
+.title::first-letter {
+	text-transform: capitalize;
+}

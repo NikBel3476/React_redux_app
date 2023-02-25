@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetAlbumByIdQuery } from '../../store/api/albumApi';
 import PhotosWidget from '../../components/PhotosWidget';
+import styles from './AlbumPage.module.css';
 
 const AlbumPage: FC = () => {
 	const { id } = useParams<{ id: string }>();
@@ -24,10 +25,10 @@ const AlbumPage: FC = () => {
 	}
 
 	return (
-		<div>
-			<h1>{album.title}</h1>
+		<main className={styles.container}>
+			<h1 className={styles.title}>{album.title}</h1>
 			<PhotosWidget />
-		</div>
+		</main>
 	);
 };
 
