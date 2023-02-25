@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL, API_PHOTOS } from '../../http/httpRoutes';
+import { API_PHOTOS, API_URL } from '../../http/httpRoutes';
 import { Photo } from '../../types/Photo';
 import { ListResponse } from '../ListResponse';
 
@@ -49,7 +49,7 @@ export const photoApi = createApi({
 			})
 		}),
 		getPhotosByAlbumId: builder.query<
-			ListResponse<Photo>,
+			ListResponse<Photo> & { albumId: number },
 			{ albumId: number; page: number; limit: number }
 		>({
 			query: ({ albumId, page = 1, limit = 5 }) => ({
@@ -69,14 +69,18 @@ export const photoApi = createApi({
 				const totalCount =
 					totalCountHeaderValue != null ? Number(totalCountHeaderValue) : 0;
 				return {
+					albumId: arg.albumId,
 					totalCount,
 					totalPages: Math.ceil(totalCount / arg.limit),
 					data: response
 				};
 			},
-			providesTags: () => ['Photos'],
 			merge: (currentCacheData, responseData) => {
-				currentCacheData.data.push(...responseData.data);
+				currentCacheData.data =
+					currentCacheData.albumId === responseData.albumId
+						? [...currentCacheData.data, ...responseData.data]
+						: responseData.data;
+				currentCacheData.albumId = responseData.albumId;
 				currentCacheData.totalCount = responseData.totalCount;
 				currentCacheData.totalPages = responseData.totalPages;
 			},
